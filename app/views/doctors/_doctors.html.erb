@@ -1,0 +1,9 @@
+<ul>
+  <% @doctors.each do |doc| %>
+    <li id="doctor-<%= doc.id %>">
+      <h3>Doctor <%= doc.name %></h3>
+      <h4>Experience: <%= doc.years_practiced %></h4>
+      <h4>Education: <%= doc.university %></h4>
+    </li>
+  <% end %>
+</ul>

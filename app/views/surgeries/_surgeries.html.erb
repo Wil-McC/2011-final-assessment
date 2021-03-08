@@ -1,0 +1,8 @@
+<ul>
+  <% @surgeries.each do |surg| %>
+    <li id="surgery-<%= surg.id %>">
+      <%= surg.title %> - <%= surg.weekday %> - Room #<%= surg.or_number %><br>
+      Average Years Practiced: <%=  %>
+    </li>
+  <% end %>
+</ul>

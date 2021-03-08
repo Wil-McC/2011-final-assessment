@@ -4,6 +4,10 @@ class SurgeriesController < ApplicationController
   def show
   end
 
+  def index
+    @surgeries = Surgery.all
+  end
+
   private
 
   def set_surgery
