@@ -32,9 +32,11 @@ RSpec.describe 'the surgery show page' do
 
     within('.most') do
       expect(page).to have_content('Most Experienced Doctor')
+      expect(page).to have_content('Dorin Apple - 20 years')
     end
     within('.least') do
       expect(page).to have_content('Least Experienced Doctor')
+      expect(page).to have_content('Perc Eben - 10 years')
     end
   end
   it "has an add doctor form field" do
@@ -46,7 +48,7 @@ RSpec.describe 'the surgery show page' do
     end
 
     expect(current_path).to eq(surgery_path(@org))
-    
+
     within('.all-docs') do
       expect(page).to have_content('Hatchi Ano - 15 years')
     end
