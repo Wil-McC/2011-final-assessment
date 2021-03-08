@@ -14,5 +14,8 @@ RSpec.describe Doctor, type: :model do
     it 'Doctor::sorted_xp' do
       expect(Doctor.sorted_xp).to eq([@dor, @ban, @per])
     end
+    it "Doctor::match" do
+      expect(Doctor.match("Perc")).to eq(@per)
+    end
   end
 end

@@ -7,6 +7,7 @@ RSpec.describe 'the surgery show page' do
     @ban = Doctor.create!(name: 'Iban Thao', years_practiced: 12, university: 'Narnia U')
     @per = Doctor.create!(name: 'Perc Eben', years_practiced: 10, university: 'Ibuen GS')
     @dor = Doctor.create!(name: 'Dorin Apple', years_practiced: 20, university: 'Harvard')
+    @hac = Doctor.create!(name: "Hatchi Ano", years_practiced: 15, university: 'Saobody Arc')
 
     @org.doctors << [@dor, @ban, @per]
   end
@@ -34,6 +35,20 @@ RSpec.describe 'the surgery show page' do
     end
     within('.least') do
       expect(page).to have_content('Least Experienced Doctor')
+    end
+  end
+  it "has an add doctor form field" do
+    visit surgery_path(@org)
+
+    within('#new_doc') do
+      fill_in 'name', with: 'Hatchi Ano'
+      click_on 'Add Doctor'
+    end
+
+    expect(current_path).to eq(surgery_path(@org))
+    
+    within('.all-docs') do
+      expect(page).to have_content('Hatchi Ano - 15 years')
     end
   end
 end

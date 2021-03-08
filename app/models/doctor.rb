@@ -5,4 +5,8 @@ class Doctor < ApplicationRecord
   def self.sorted_xp
     order(years_practiced: :desc)
   end
+
+  def self.match(name)
+    where('name ILIKE ?', "%#{name}%").first
+  end
 end

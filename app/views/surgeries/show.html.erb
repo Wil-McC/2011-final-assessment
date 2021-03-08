@@ -8,3 +8,17 @@
     <% end %>
   </ul>
 </section>
+<section class="most">
+  <h2>Most Experienced Doctor</h2>
+  <h3><%= @surgery.most_xp.name %> - <%= @surgery.most_xp.years_practiced %> years</h3>
+</section>
+<section class="least">
+  <h2>Least Experienced Doctor</h2>
+  <h3><%= @surgery.least_xp.name %> - <%= @surgery.least_xp.years_practiced %> years</h3>
+</section>
+<section id="new_doc">
+  <%= form_with url: surgery_doctors_path(@surgery), method: :post, local: true do |f| %>
+    <%= f.text_field :name, placeholder: 'Add a doctor to this surgery' %>
+    <%= f.submit 'Add Doctor' %>
+  <% end %>
+</section>

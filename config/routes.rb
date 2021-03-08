@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :doctors, only: [:index]
 
-  resources :surgeries, only: [:show]
+  resources :surgeries, only: [:show] do
+    resources :doctors, controller: 'surgery_doctors', only: [:create]
+  end
 end
