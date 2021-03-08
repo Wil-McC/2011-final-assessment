@@ -1,0 +1,10 @@
+<h1>Surgery for: <%= @surgery.title %></h1>
+<h3>Scheduled for: <%= @surgery.weekday %></h3>
+<h3>Room #<%= @surgery.or_number %></h3>
+<section class="all-docs">
+  <ul>
+    <% @surgery.doctors.each do |doc| %>
+      <li><%= doc.name %> - <%= doc.years_practiced %> years</li>
+    <% end %>
+  </ul>
+</section>
